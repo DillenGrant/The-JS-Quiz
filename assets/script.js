@@ -24,12 +24,12 @@ function startQuiz() {
 // Function to set the next question
 function setNextQuestion() {
     if (currentQuestionIndex < questions.length) {
-        const question = questions[currentQuestionIndex];
+        var question = questions[currentQuestionIndex];
         questionText.textContent = question.question;
         answerButtons.innerHTML = "";
 
         question.answers.forEach((answer, index) => {
-            const button = document.createElement("button");
+            var button = document.createElement("button");
             button.textContent = answer;
             button.addEventListener("click", () => {
                 if (index === question.correctAnswer) {
@@ -49,7 +49,7 @@ function setNextQuestion() {
 
 // Function to start the timer
 function startTimer() {
-    const timerInterval = setInterval(() => {
+    var timerInterval = setInterval(() => {
         timeLeft--;
         timeRemaining.textContent = timeLeft;
 
@@ -69,10 +69,12 @@ function endQuiz() {
 
 // Function to handle score submission
 submitScoreButton.addEventListener("click", () => {
-    const initials = initialsInput.value;
+    var initials = initialsInput.value;
     // Save the score and initials here (you can use localStorage or an API)
     alert(`Score saved for ${initials}: ${score}`);
+    location.reload();
 });
+
 
 // Add event listener to start the quiz
 startButton.addEventListener("click", startQuiz);
