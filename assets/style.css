@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-color: #e70606;
     margin: 0;
     padding: 0;
 }
@@ -16,11 +16,12 @@ h1, h2 {
 }
 
 #start-button, #submit-score {
-    background-color: #007bff;
-    color: #fff;
+    background-color: #13eb22;
+    color: #000000;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
+    border-radius: 50px;
 }
 
 #start-button:hover, #submit-score:hover {
@@ -28,7 +29,7 @@ h1, h2 {
 }
 
 #quiz-screen {
-    background-color: #fff;
+    background-color: #5408f9;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     padding: 20px;
@@ -42,6 +43,7 @@ h1, h2 {
     border: none;
     padding: 10px 20px;
     cursor: pointer;
+    border-radius: 50px;
 }
 
 #answer-buttons button:hover {
