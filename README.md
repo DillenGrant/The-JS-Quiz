@@ -1,7 +1,7 @@
 # The-JS-Quiz
 This is a Test of you JS knowledge
 
-https://dillengrant.github.io/Password-Creator/ here is the live page
+https://dillengrant.github.io/The-JS-Quiz/ here is the live page
 
 ## Description
 
