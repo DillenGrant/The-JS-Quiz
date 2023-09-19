@@ -13,10 +13,19 @@ var currentQuestionIndex = 0;
 var timeLeft = 60;
 var score = 0;
 
+//randomize questions
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
 //start the quiz
 function startQuiz() {
     startButton.style.display = "none";
     quizScreen.style.display = "block";
+    shuffleArray(questions);
+        currentQuestionIndex = 0;
     NextQuestion();
     startTimer();
 }
@@ -152,5 +161,5 @@ var questions = [
       'Execute a function immediately'
     ],
     correctAnswer: 0,
-  },
+},
 ]
