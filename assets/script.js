@@ -10,19 +10,19 @@ var initialsInput = document.getElementById("initials");
 var submitScoreButton = document.getElementById("submit-score");
 
 var currentQuestionIndex = 0;
-var timeLeft = 90;
+var timeLeft = 60;
 var score = 0;
 
-// Function to start the quiz
+//start the quiz
 function startQuiz() {
     startButton.style.display = "none";
     quizScreen.style.display = "block";
-    setNextQuestion();
+    NextQuestion();
     startTimer();
 }
 
-// Function to set the next question
-function setNextQuestion() {
+// go to next question
+function NextQuestion() {
     if (currentQuestionIndex < questions.length) {
         var question = questions[currentQuestionIndex];
         questionText.textContent = question.question;
@@ -35,10 +35,10 @@ function setNextQuestion() {
                 if (index === question.correctAnswer) {
                     score++;
                 } else {
-                    timeLeft -= 10; // Penalty for wrong answer
+                    timeLeft -= 10;
                 }
                 currentQuestionIndex++;
-                setNextQuestion();
+                NextQuestion();
             });
             answerButtons.appendChild(button);
         });
@@ -47,7 +47,7 @@ function setNextQuestion() {
     }
 }
 
-// Function to start the timer
+// start the timer
 function startTimer() {
     var timerInterval = setInterval(() => {
         timeLeft--;
@@ -60,44 +60,48 @@ function startTimer() {
     }, 1000);
 }
 
-// Function to end the quiz
+// end the quiz
 function endQuiz() {
     quizScreen.style.display = "none";
     endScreen.style.display = "block";
     finalScore.textContent = score;
 }
 
-// Function to handle score submission
+// score submission
 submitScoreButton.addEventListener("click", () => {
     var initials = initialsInput.value;
-    // Save the score and initials here (you can use localStorage or an API)
+    saveScore(initials, score)
     alert(`Score saved for ${initials}: ${score}`);
+
     location.reload();
 });
 
+function saveScore(initials, score) {
+    localStorage.setItem(initials, score)
+}
 
-// Add event listener to start the quiz
 startButton.addEventListener("click", startQuiz);
 
 var questions = [
     {
         question: "What is JavaScript?",
         answers: [
-            "A programming language",
-            "A type of coffee",
-            "A book",
+            "A way to make coffee",
+            "The lines for a movie",
+            "something with MineCraft?",
+             "A programming language",
         ],
-        correctAnswer: 0,
+        correctAnswer: 3,
     },
   {
     question: 'What is JavaScript primarily used for?',
     answers: [
-      'Adding interactivity to web pages',
-      'Styling web pages',
       'Creating responsive web designs',
+      'Styling web pages',
       'Managing server-side database',
+      'Adding interactivity to web pages',
     ],
-    correctAnswer: 0,
+    correctAnswer: 3,
   },
   {
     question: 'How do you declare a function in JavaScript?',
@@ -117,7 +121,7 @@ var questions = [
       'Um no',
       'IDK',
     ],
-    correctAnswer: 2,
+    correctAnswer: 1,
   },
   {
     question: 'Which JavaScript data type represents a single character?',
@@ -127,7 +131,7 @@ var questions = [
         'character',
         'charstring',
     ],
-    correctAnswer: 2,
+    correctAnswer: 1,
   },
   {
     question: 'What does the "DOM" stand for in the context of web development?',
